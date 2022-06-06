@@ -4,30 +4,59 @@ import axios from "axios";
 function AddComment(props) {
 const[content, setContent] = useState("")
 const [imageUrl, setImageUrl] = useState("")
+const [isUploading, setIsUploading] = useState(false)
 
 const handleContent = (e) => setContent(e.target.value);
 const handleImageUrl = (e) => setImageUrl(e.target.value);
 
+const handleFileUpload = async (e) => {
 
-
-const handleSubmit = async (event) => {
-    try {    
-    event.preventDefault();
+  try{
+    const uploadData = new FormData();
  
-    const { restaurantId } = props;
-
-        // Create an object representing the body of the POST request
-    const body = { content, imageUrl, restaurant: restaurantId}; //restaurantId??nao o pus no backend!!
+    uploadData.append("imageUrl", e.target.files[0]);
     
     const getToken = localStorage.getItem("authToken");
 
-    await axios.post( `${process.env.REACT_APP_BASE_API_URL}/api/restaurants/comments`, body,
+    setIsUploading(true)
+
+    const response = await axios.post( `${process.env.REACT_APP_BASE_API_URL}/api/upload`, uploadData,
     {
       headers: {
         Authorization: `Bearer ${getToken}`,
       },
     }
     );
+
+    setImageUrl(response.data.fileUrl);
+    setIsUploading(false)
+
+  }    catch (error) {
+    console.log(error)
+        }
+
+    }
+
+const handleSubmit = async (event) => {
+    try {    
+    event.preventDefault();
+    if(isUploading) return
+ 
+    const { restaurantId } = props;
+
+        // Create an object representing the body of the POST request
+    const body = { content, imageUrl, restaurant: restaurantId}; //restaurantId??nao o pus no backend!!
+      
+    const getToken = localStorage.getItem("authToken");
+
+    const createdCommment = await axios.post( `${process.env.REACT_APP_BASE_API_URL}/api/restaurants/comments`, body,
+    {
+      headers: {
+        Authorization: `Bearer ${getToken}`,
+      },
+    }
+    );
+    console.log(createdCommment.data)
     setContent("");
     setImageUrl("");
     props.refreshRestaurant();
@@ -43,7 +72,7 @@ const handleSubmit = async (event) => {
     <h1>Add a review</h1>
 
     <form onSubmit={handleSubmit}>
-        <label>Content</label>
+        <label>Review</label>
         <textarea
            name="content"
           cols="30"
@@ -52,13 +81,7 @@ const handleSubmit = async (event) => {
           onChange={ handleContent } 
         ></textarea>
  
-        {/* <label>Add photo</label>
-        <textarea
-          type="text"
-          name="description"
-          value={description}
-          onChange={handleImageUrl}
-        /> */}
+ <input type="file" onChange={(e) => handleFileUpload(e)} />
  
         <button type="submit">Add</button>
       </form>

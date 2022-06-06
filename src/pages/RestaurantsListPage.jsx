@@ -9,10 +9,13 @@ function RestaurantsListPage() {
   const { user } = useContext(AuthContext);
   const [restaurants, setRestaurants] = useState([])
   const [allRestaurants, setAllRestaurants] = useState([]);
+  const [items, setItems] = useState(1) //quantidade inicial
 
 
-
-
+const showMoreItems = () => {
+  const itemsToAdd = 1
+  setItems(items + itemsToAdd)
+}
 
 const getAllRestaurants = async() => {
   try {
@@ -36,19 +39,24 @@ const getAllRestaurants = async() => {
   }
 };
 
+
+const searchRestaurant = (search) => {
+  let searchedRestaurant = restaurants.filter((restaurant) => {
+    const filteredName = restaurant.name.toLowerCase().includes(search.toLowerCase())
+    const filteredCity = restaurant.city.toLowerCase().includes(search.toLowerCase())
+      return filteredName + filteredCity;
+  })
+
+  setAllRestaurants(searchedRestaurant);
+}
+
 useEffect(() => {
   getAllRestaurants();
 }, []);
 
 
 
-const searchRestaurant = (search) => {
-  const searchedRestaurant = allRestaurants.filter((restaurant) => {
-      return restaurant.name.toLowerCase().includes(search.toLowerCase());
-  })
 
-  setAllRestaurants(searchedRestaurant);
-}
 
 
   return (
@@ -58,8 +66,10 @@ const searchRestaurant = (search) => {
     <h1>Tascas</h1>
 
     <Searchbar searchRestaurant ={searchRestaurant}/>
+
+    
    
-    {restaurants.map((restaurant) => {
+    {restaurants && allRestaurants.slice(0,items).map((restaurant) => {
       return (
         <div key={restaurant._id}>
         <img src={restaurant.imageCover} alt="restaurant" />
@@ -73,6 +83,7 @@ const searchRestaurant = (search) => {
         </div>
       );
     })}
+    <button onClick={showMoreItems}>Show More</button>
   </div>
 );
 }

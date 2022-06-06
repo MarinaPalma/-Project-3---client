@@ -14,6 +14,7 @@ const {restaurantId} = useParams();
 const { user } = useContext(AuthContext);
 const [showEdit, setShowEdit] = useState(false)
 const [showAdd, setShowAdd] = useState(false)
+// const [addFav, setAddFav] = useState(false);
 
 // const toggleEdit = () =>{
    
@@ -24,6 +25,12 @@ const [showAdd, setShowAdd] = useState(false)
    
     setShowAdd(!showAdd)
     }
+
+    // const toggleaddFav = () =>{
+   
+    //   setAddFav(!addFav)
+    //   }
+
 
 
 const getRestaurant = async () => {
@@ -38,7 +45,7 @@ const getRestaurant = async () => {
         },
       }
     );
-    console.log(response.data)
+    //console.log(response.data)
     setRestaurant(response.data);
     
 
@@ -78,6 +85,8 @@ const deleteComment = async (id) =>{
     {user && user.role ==="user" &&(
     <AddFavouriteBtn restaurantId={restaurantId}/>
     )}
+
+
   {restaurant && (
 <>
   <h2>{restaurant.name}</h2>
@@ -111,9 +120,12 @@ const deleteComment = async (id) =>{
         <>
             <h3>{comment.author.name}</h3>
             <p>{comment.createdAt}</p>
-            <h4>Description:</h4>
+            <h4>Review</h4>
             <p>{comment.content}</p>
-
+            {comment.imageUrl.map((img) => {
+              return <img src={img} alt="review" width='200px'/>
+            })}
+            
             {comment.author._id === user._id &&
               <>
 
@@ -121,8 +133,6 @@ const deleteComment = async (id) =>{
               {/* <button onClick= {toggleEdit}>Edit comment</button>
             {showEdit && <UpdateComment/>} */}
 
-
-                {/* <Link to="???"><button>Edit comment</button></Link>  */}
                 <button onClick={() => deleteComment(comment._id)}>Delete   comment</button>
               </>
             }
