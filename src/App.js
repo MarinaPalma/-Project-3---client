@@ -1,5 +1,6 @@
 
 import './App.css';
+import "./login.css";
 import Navbar from './components/Navbar';
 import { Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
@@ -11,6 +12,8 @@ import RestaurantDetailsPage from './pages/RestaurantDetailsPage';
 import ErrorPage from './pages/ErrorPage';
 import EditRestaurantPage from './pages/EditRestaurantPage';
 import CreateRestaurantPage from './pages/CreateRestaurantPage'
+import IsPublic from './components/IsPublic';
+import IsPrivate from './components/isPrivate';
 
 
 
@@ -19,14 +22,14 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/signup" element={<SignupPage/>} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/profile" element={<ProfilePage />} />      
-        <Route path="/restaurants" element={<RestaurantsListPage />} />
-        <Route path="/restaurants/:restaurantId" element={<RestaurantDetailsPage/>} />
-        <Route path="/restaurants/add" element={<CreateRestaurantPage />} />
-        <Route path="/restaurants/edit/:restaurantId" element={<EditRestaurantPage />} />
-        <Route path="/restaurants/comments" element={<EditRestaurantPage />} />
+        <Route path="/signup" element={<IsPublic><SignupPage/></IsPublic>} />
+        <Route path="/login" element={<IsPublic><LoginPage /></IsPublic>} />
+        <Route path="/profile" element={<IsPrivate><ProfilePage /></IsPrivate>} />      
+        <Route path="/restaurants" element={<IsPrivate><RestaurantsListPage /></IsPrivate>} />
+        <Route path="/restaurants/:restaurantId" element={<IsPrivate><RestaurantDetailsPage/></IsPrivate>} />
+        <Route path="/restaurants/add" element={<IsPrivate><CreateRestaurantPage /></IsPrivate>} />
+        <Route path="/restaurants/edit/:restaurantId" element={<IsPrivate><EditRestaurantPage /></IsPrivate>} />
+        <Route path="/restaurants/comments" element={<IsPrivate><EditRestaurantPage /></IsPrivate>} />
         <Route path="*" element={<ErrorPage/>} />
     </Routes>
 

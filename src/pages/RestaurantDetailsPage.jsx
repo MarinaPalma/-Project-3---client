@@ -119,7 +119,7 @@ const deleteComment = async (id) =>{
         {comment.author && (
         <>
             <h3>{comment.author.name}</h3>
-            <p>{comment.createdAt}</p>
+            <p>{comment.createdAt.slice(0,10)}</p>
             <h4>Review</h4>
             <p>{comment.content}</p>
             {comment.imageUrl.map((img) => {

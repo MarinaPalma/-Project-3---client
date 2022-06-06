@@ -1,6 +1,8 @@
 import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/auth.context';
+import {Form, Button, InputGroup} from 'react-bootstrap';
+
 
 import axios from 'axios';
 
@@ -36,23 +38,62 @@ function LoginPage() {
   };
 
   return (
-    <div className="LoginPage">
-      <h1>Login</h1>
 
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="email">Email</label>
-        <input type="text" name="email" value={email} onChange={handleEmail} />
+<div className='center'>
+<div className="loginform">
+    <h1 className="mt-3 mb-3 shadow-sm">Login</h1>
+    <Form onSubmit={handleSubmit} style={{ width: '30rem'}}  className="">
+    <Form.Group className="mb-3" controlId="formBasicEmail">
+    <Form.Label className="text-end">Email address</Form.Label>
+    <Form.Control type="email" placeholder="Enter email" value={email} onChange={handleEmail}/>
+    <Form.Text className="text-muted">
+      We'll never share your email with anyone else.
+    </Form.Text>
+    </Form.Group>
 
-        <label htmlFor="password">Password</label>
-        <input type="password" name="password" value={password} onChange={handlePassword} />
+     <Form.Group className="mb-3" controlId="formBasicPassword">
+    <Form.Label>Password</Form.Label>
+    <Form.Control type="password" placeholder="Password" value={password} onChange={handlePassword}/>
+   </Form.Group>
+  <Button variant="primary" type="submit" name="password" >
+    Login
+  </Button>
+    </Form>
 
-        <button type="submit">Login</button>
-      </form>
+    <div className="loginformbtm">
+{errorMessage && <p className="error-message">{errorMessage}</p>}
+    
+     <p>Don't have an account?</p>
+     <Link to="/signup"> Sign up</Link>
+     </div>
+     </div>
 
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
-      <p>Don't have an account?</p>
-      <Link to="/signup"> Sign up</Link>
-    </div>
+</div>
+
+
+
+
+
+
+
+
+    // <div className="LoginPage">
+    //   <h1>Login</h1>
+
+    //   <form onSubmit={handleSubmit}>
+    //     <label htmlFor="email">Email</label>
+    //     <input type="text" name="email" value={email} onChange={handleEmail} />
+
+    //     <label htmlFor="password">Password</label>
+    //     <input type="password" name="password" value={password} onChange={handlePassword} />
+
+    //     <button type="submit">Login</button>
+    //   </form>
+
+    //   {errorMessage && <p className="error-message">{errorMessage}</p>}
+    //   <p>Don't have an account?</p>
+    //   <Link to="/signup"> Sign up</Link>
+    // </div>
   );
 }
 

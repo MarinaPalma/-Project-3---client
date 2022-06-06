@@ -1,0 +1,21 @@
+.loginform{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 35rem;
+    border: 2px solid rgb(37, 37, 220);
+    border-style: groove;
+    border-radius: 20px;
+    padding:20px;
+    margin-top:10rem;
+  
+}
+.loginformbtm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.center{
+    display: flex;
+    justify-content: center;
+}

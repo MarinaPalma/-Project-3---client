@@ -70,6 +70,7 @@ useEffect(() => {
     
    
     {restaurants && allRestaurants.slice(0,items).map((restaurant) => {
+
       return (
         <div key={restaurant._id}>
         <img src={restaurant.imageCover} alt="restaurant" />
@@ -79,6 +80,7 @@ useEffect(() => {
           </Link>
           {user && user.role ==="admin" &&(      
           <Link to={`/restaurants/edit/${restaurant._id}`}><button type="submit">Edit</button></Link>
+          
           )}
         </div>
       );

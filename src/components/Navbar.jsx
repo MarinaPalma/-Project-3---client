@@ -7,9 +7,9 @@ function Navbar() {
 
   return (
     <nav>
-      <Link to="/">
+      {/* <Link to="/">
         <button>Home</button>
-      </Link>
+      </Link> */}
 
       {isLoggedIn && (
         <>

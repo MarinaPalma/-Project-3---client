@@ -12,7 +12,7 @@ function IsPublic({ children }) {
   if (!isLoggedIn) {
     return children;
   } else {
-    return navigate('/projects');
+    return navigate('/restaurants');
   }
 }
 
