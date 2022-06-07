@@ -30,7 +30,7 @@ function LoginPage() {
       .then((response) => {
         storeToken(response.data.authToken);
         authenticateUser();
-        navigate(`/restaurants`);
+        navigate(`/profile`);
       })
       .catch((err) => {
         setErrorMessage(err.response.data.errorMessage);

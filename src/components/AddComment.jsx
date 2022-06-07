@@ -44,8 +44,14 @@ const handleSubmit = async (event) => {
  
     const { restaurantId } = props;
 
-        // Create an object representing the body of the POST request
-    const body = { content, imageUrl, restaurant: restaurantId}; //restaurantId??nao o pus no backend!!
+  // Create an object representing the body of the POST request
+    let body 
+
+    if(imageUrl === "") {
+      body = { content, restaurant: restaurantId}; 
+    } else {
+      body = { content, imageUrl, restaurant: restaurantId}; 
+    }
       
     const getToken = localStorage.getItem("authToken");
 
@@ -56,7 +62,6 @@ const handleSubmit = async (event) => {
       },
     }
     );
-    console.log(createdCommment.data)
     setContent("");
     setImageUrl("");
     props.refreshRestaurant();
@@ -72,18 +77,22 @@ const handleSubmit = async (event) => {
     <h1>Add a review</h1>
 
     <form onSubmit={handleSubmit}>
+
+
+
         <label>Review</label>
         <textarea
            name="content"
           cols="30"
           rows="10"
           value={content}
+          required
           onChange={ handleContent } 
         ></textarea>
  
  <input type="file" onChange={(e) => handleFileUpload(e)} />
  
-        <button type="submit">Add</button>
+        <button type="submit">{isUploading ? "Uploading Photo" : "Add"}</button>
       </form>
     
     

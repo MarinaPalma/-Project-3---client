@@ -8,11 +8,11 @@ function CreateRestaurantPage() {
   const [name, setName] = useState("");
   const [city, setCity] = useState("");
   const [address, setAddress] = useState("");
-  const [averagePrice, setAveragePrice] = useState(5);
-  const [contact, setContact] = useState(2);
+  const [averagePrice, setAveragePrice] = useState("");
+  const [contact, setContact] = useState("");
+  const [imageUrl, setImageUrl] = useState(""); 
 
-
-  const [imageCover, setImageCover] = useState(""); 
+  const [isUploading, setIsUploading] = useState(false)
   
   const [errorMessage, setErrorMessage] = useState(undefined);
 
@@ -23,7 +23,38 @@ function CreateRestaurantPage() {
   const handleAddress = (e) => setAddress(e.target.value);
   const handleAveragePrice = (e) => setAveragePrice(e.target.value);
   const handleContact = (e) => setContact(e.target.value);
-  const handleImageCover = (e) => setImageCover(e.target.value);
+  const handleImageUrl = (e) => setImageUrl(e.target.value);
+
+
+
+  const handleFileUpload = async (e) => {
+
+    try{
+      const uploadData = new FormData();
+   
+      uploadData.append("imageUrl", e.target.files[0]);
+      
+      const getToken = localStorage.getItem("authToken");
+  
+      setIsUploading(true)
+  
+      const response = await axios.post( `${process.env.REACT_APP_BASE_API_URL}/api/upload`, uploadData,
+      {
+        headers: {
+          Authorization: `Bearer ${getToken}`,
+        },
+      }
+      );
+  
+      setImageUrl(response.data.fileUrl);
+      setIsUploading(false)
+  
+    }    catch (error) {
+      console.log(error)
+          }
+  
+      }
+
 
 
 
@@ -31,6 +62,8 @@ function CreateRestaurantPage() {
     try {
         //Prevent page reloads on submit
         event.preventDefault();
+
+        if(isUploading) return
     
         const newRestaurant = {
           name: name,
@@ -38,9 +71,9 @@ function CreateRestaurantPage() {
           address: address,
           averagePrice: averagePrice,
           contact: contact,
-          // comments: comments, vem ou nao?
-          imageCover: imageCover
+          imageUrl: imageUrl
         }
+
     
         // Make a post request to API
         const getToken = localStorage.getItem("authToken");
@@ -56,9 +89,9 @@ function CreateRestaurantPage() {
         setName("");
         setCity("");
         setAddress("");
-        setAveragePrice(5);
-        setContact(2);
-        setImageCover("");
+        setAveragePrice("");
+        setContact("");
+        setImageUrl("");
         alert("A new tasca was created")
     
         navigate("/restaurants")
@@ -69,49 +102,6 @@ function CreateRestaurantPage() {
 }
 
 
-// const handleSubmit = (event) => {
-  
-//       //Prevent page reloads on submit
-//       event.preventDefault();
-  
-//       const newRestaurant = {
-//         name: name,
-//         city: city,
-//         address: address,
-//         averagePrice: averagePrice,
-//         contact: contact,
-//         // comments: comments, vem ou nao é preciso?
-//         imageCover: imageCover
-//       }
-  
-//       // Make a post request to API
-//       const getToken = localStorage.getItem("authToken");
-//       axios
-//       .post( `${process.env.REACT_APP_BASE_API_URL}/restaurants`, newRestaurant,
-//       {
-//         headers: {
-//           Authorization: `Bearer ${getToken}`,
-//       },
-//     })
-//     .then(()=>{
-
-//       // Clear Inputs
-//       setName("");
-//       setCity("");
-//       setAddress("");
-//       setAveragePrice(5);
-//       setContact(2);
-//       setComments("");
-//       setImageCover("");
-//       alert("A new tasca was created")
-  
-//       navigate("/restaurants")
-//     } )
-//     .catch ((error) => {
-//       setErrorMessage('Something went wrong. Try again')
-//       setTimeout(() => setErrorMessage(undefined), 2000);
-//     })
-// }
 
 
 
@@ -122,27 +112,31 @@ function CreateRestaurantPage() {
         <form onSubmit= {handleSubmit} >
             {errorMessage && <p>{errorMessage}</p>}
 
+
+
+            <label></label>
+          <input type="file" required onChange={(e) => handleFileUpload(e)} />
+
+
             <label>Name</label>
-            <input type="text" name="name" value={name} onChange={ handleName } />
+            <input type="text" name="name" value={name} required onChange={ handleName } />
 
             <label>City</label>
-            <input type="text" name="city" value={city} onChange={ handleCity } />
+            <input type="text" name="city" value={city} required onChange={ handleCity } />
 
             <label>Address</label>
-            <input type="text" name="address" value={address} onChange={ handleAddress } />
+            <input type="text" name="address" value={address} required onChange={ handleAddress } />
 
             <label>Average Price</label>
-            <input type="number" name="averagePrice" value={averagePrice} onChange={ handleAveragePrice } />
+            <input type="number" name="averagePrice" value={averagePrice} required onChange={ handleAveragePrice } />
 
             <label>Contact</label>
-            <input type="number" name="contact" value={contact} onChange={ handleContact } />
+            <input type="number" name="contact" value={contact} required onChange={ handleContact } />
 
 
-{/* 
-            <label></label>
-            <input type="src" name="imageCover" value={imageCover} onChange={ handleImageCover } /> */}
+            <button type="submit">{isUploading ? "Uploading Photo" : "Add"}</button>
 
-            <button type="submit">Add</button>
+            {/* <button type="submit">Add</button> */}
         </form>
     </div>
  );

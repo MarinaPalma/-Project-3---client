@@ -4,6 +4,9 @@ import axios from "axios";
 import Navbar from "../components/Navbar";
 import { Link, useParams, useNavigate} from 'react-router-dom';
 import UpdateComment from "../components/UpdateComment";
+import {AiFillHeart} from "react-icons/ai"
+
+
 
 function ProfilePage() {
   const { user } = useContext(AuthContext);
@@ -70,9 +73,9 @@ const toggleEdit = () =>{
     <div>
       {user && (
         <>
-    <h1>Hello {user.name}</h1>
+    <h1>Hello {user.name}!</h1>
 
-          <img src={user.imageProfile} alt="profile" />
+          <img src={user.imageProfile} alt="profile" width='200px'/>
           <h3>{user.name}</h3>
           <p>{user.email}</p>
         </>
@@ -80,14 +83,15 @@ const toggleEdit = () =>{
 
 {user && user.role ==="user" &&(
   <>
-    <h3>Favourites </h3>
+    <h3> <AiFillHeart/> Favourite Tascas </h3>
 
 
   {currentUser &&
       currentUser.favourites.map((restaurant) => {
         return (
           <div key={restaurant._id}>
-            <img src={restaurant.imageCover} alt="restaurant" />
+            <img src={restaurant.imageUrl} alt="restaurant" width="400px"/>
+            <Link to={`/restaurants/${restaurant._id}`}> <h3>{restaurant.name}</h3></Link>
             <h3>{restaurant.name}</h3>
           </div>
         );
@@ -97,25 +101,7 @@ const toggleEdit = () =>{
       }
 
 
-    <h3>Reviews</h3>
-    <button onClick={toggleShow}>{showComments ? 'Hide' : 'Show'}</button>
 
-    {showComments && currentUser &&
-    
-      currentUser.comments.map((comment) => {
-        return (
-          <div key={comment._id}>
-            <p>{comment.restaurant}</p>
-            <p>{comment.content}</p>
-            <button onClick= {toggleEdit}>Edit comment</button>
-            {showEdit && <UpdateComment/>}
-            {/* <button onClick={deleteComment}>Delete comment</button> */}
-          </div>
-        );
-      })}
-
-      {currentUser && !currentUser.comments.length && <p>No reviews yet! Help other by commenting the tascas you went to </p>
-      }
 
       </>
       )}
@@ -123,7 +109,7 @@ const toggleEdit = () =>{
       {user && user.role ==="admin" &&(
           <>
           <Link to="/restaurants/add"><button type="submit">Add a new Tasca</button></Link>
-          <Link to="/restaurants"><button type="submit">Edit a Tasca</button></Link>
+          <Link to="/restaurants"><button type="submit">Manage Tascas</button></Link>
           </>
       )}
 
@@ -134,6 +120,27 @@ const toggleEdit = () =>{
 }
 
 export default ProfilePage;
+
+
+// <h3>Reviews</h3>
+//     <button onClick={toggleShow}>{showComments ? 'Hide' : 'Show'}</button>
+
+    // {showComments && currentUser &&
+    
+    //   currentUser.comments.map((comment) => {
+    //     return (
+    //       <div key={comment._id}>
+    //         <p>{comment.restaurant}</p>
+    //         <p>{comment.content}</p>
+    //         <button onClick= {toggleEdit}>Edit comment</button>
+    //         {showEdit && <UpdateComment/>}
+    //         {/* <button onClick={deleteComment}>Delete comment</button> */}
+    //       </div>
+    //     );
+    //   })}
+
+    //   {currentUser && !currentUser.comments.length && <p>No reviews yet! Help other by commenting the tascas you went to </p>
+    //   }
 
 
 

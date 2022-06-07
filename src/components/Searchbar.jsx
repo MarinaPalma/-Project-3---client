@@ -1,5 +1,7 @@
 import React from "react";
 import { useState } from "react";
+import { FcSearch } from 'react-icons/fc';
+
 
 function Searchbar({searchRestaurant}) {
     const [searchString, setSearchString] = useState('');
@@ -13,8 +15,8 @@ const handleSearch= (e) =>{
 
   return (
     <div>
-        <label> Search a Tasca</label>
-        <input value={searchString} placeholder="Type tasca name" type="text" onChange={handleSearch}/>
+        <label> <FcSearch/> Search  </label>
+        <input value={searchString} placeholder="Tasca name, city" type="text" onChange={handleSearch}/>
     </div>
   )
 }

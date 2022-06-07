@@ -4,16 +4,18 @@ import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import { AuthContext } from "../context/auth.context";
 import Searchbar from '../components/Searchbar';
+import {Row, Col, Card, Button} from 'react-bootstrap';
+
 
 function RestaurantsListPage() {
   const { user } = useContext(AuthContext);
   const [restaurants, setRestaurants] = useState([])
   const [allRestaurants, setAllRestaurants] = useState([]);
-  const [items, setItems] = useState(1) //quantidade inicial
+  const [items, setItems] = useState(5) //quantidade inicial
 
 
 const showMoreItems = () => {
-  const itemsToAdd = 1
+  const itemsToAdd = 5
   setItems(items + itemsToAdd)
 }
 
@@ -50,6 +52,7 @@ const searchRestaurant = (search) => {
   setAllRestaurants(searchedRestaurant);
 }
 
+
 useEffect(() => {
   getAllRestaurants();
 }, []);
@@ -64,28 +67,44 @@ useEffect(() => {
     <div>
      <Navbar/>
     <h1>Tascas</h1>
-
+<div className="searchBar">
     <Searchbar searchRestaurant ={searchRestaurant}/>
-
-    
-   
+</div>
+    <div className="allRestForm">
+    <Row xs={1} md={3} className="g-4" >
     {restaurants && allRestaurants.slice(0,items).map((restaurant) => {
 
-      return (
-        <div key={restaurant._id}>
-        <img src={restaurant.imageCover} alt="restaurant" />
-        <h3>{restaurant.name}</h3>
-          <Link to={`/restaurants/${restaurant._id}`}>
-            <button type='submit'>See Details</button>
-          </Link>
-          {user && user.role ==="admin" &&(      
-          <Link to={`/restaurants/edit/${restaurant._id}`}><button type="submit">Edit</button></Link>
+return (
+    <Col >
+      <Card key={restaurant._id} >
+        <Card.Img variant="top" src={restaurant.imageUrl} alt="restaurant" style={{ "height":"25rem"}}/>
+        <Card.Body>
+          <Card.Title>{restaurant.name}</Card.Title>
           
+          {/* <Card.Text>
+            This is a longer card with supporting text below as a natural
+            lead-in to additional content. This content is a little bit longer.
+          </Card.Text> */}
+          <Link to={`/restaurants/${restaurant._id}`}>
+          <Button variant="primary" type='submit'>See Details</Button>
+          </Link>
+
+          {user && user.role ==="admin" &&( 
+            <>    
+          <Link to={`/restaurants/edit/${restaurant._id}`}>
+          <Button variant="danger" type='submit'>Edit</Button>
+          </Link>
+          </> 
           )}
-        </div>
-      );
-    })}
-    <button onClick={showMoreItems}>Show More</button>
+        </Card.Body>
+      </Card>
+    </Col>
+  )})}
+
+</Row>
+</div>
+  <Button variant="outline-primary" onClick={showMoreItems}>Show More</Button>
+
   </div>
 );
 }
@@ -94,3 +113,23 @@ useEffect(() => {
 
 
 export default RestaurantsListPage
+
+
+
+// {restaurants && allRestaurants.slice(0,items).map((restaurant) => {
+
+//   return (
+//     <div key={restaurant._id}>
+//     <img src={restaurant.imageUrl} alt="restaurant" width="400px"/>
+//     <h3>{restaurant.name}</h3>
+//       <Link to={`/restaurants/${restaurant._id}`}>
+//         <button type='submit'>See Details</button>
+//       </Link>
+//       {user && user.role ==="admin" &&(      
+//       <Link to={`/restaurants/edit/${restaurant._id}`}><button type="submit">Edit</button></Link>
+      
+//       )}
+//     </div>
+//   );
+// })}
+// <button onClick={showMoreItems}>Show More</button>

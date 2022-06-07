@@ -29,8 +29,6 @@ function AddFavouriteBtn({ restaurantId }) {
     }
   };
 
-  console.log(isFavourite)
-
 
   const handleClick = async () => {
     try {

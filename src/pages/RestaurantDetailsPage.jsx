@@ -10,6 +10,7 @@ import Navbar from '../components/Navbar';
 function RestaurantDetailsPage() {
 
 const [restaurant, setRestaurant] = useState(null)
+const [comments, setComments] = useState([])
 const {restaurantId} = useParams();
 const { user } = useContext(AuthContext);
 const [showEdit, setShowEdit] = useState(false)
@@ -26,13 +27,6 @@ const [showAdd, setShowAdd] = useState(false)
     setShowAdd(!showAdd)
     }
 
-    // const toggleaddFav = () =>{
-   
-    //   setAddFav(!addFav)
-    //   }
-
-
-
 const getRestaurant = async () => {
 
   try {
@@ -47,7 +41,7 @@ const getRestaurant = async () => {
     );
     //console.log(response.data)
     setRestaurant(response.data);
-    
+    setComments(response.data.comments.reverse())
 
   } catch (error) {
     console.log(error)
@@ -90,7 +84,7 @@ const deleteComment = async (id) =>{
   {restaurant && (
 <>
   <h2>{restaurant.name}</h2>
-  <img src={restaurant.imageCover} alt="" />
+  <img src={restaurant.imageUrl} alt="" />
   <p>{restaurant.city}</p>
   <p>{restaurant.address}</p>
   <p>{restaurant.contact}</p>
@@ -112,27 +106,25 @@ const deleteComment = async (id) =>{
     )}
 
     <div >
+    <h1>Reviews</h1>
  {restaurant && (
-   restaurant.comments.map((comment)=> {
+   comments.map((comment)=> {
      return (
       <div key={comment._id}>
         {comment.author && (
         <>
             <h3>{comment.author.name}</h3>
             <p>{comment.createdAt.slice(0,10)}</p>
-            <h4>Review</h4>
-            <p>{comment.content}</p>
-            {comment.imageUrl.map((img) => {
-              return <img src={img} alt="review" width='200px'/>
-            })}
-            
+            <h5>Review:</h5>
+            <p> {comment.content}</p>
+
+            {comment.imageUrl.length > 0 ? (<>
+          {comment.imageUrl.map((img) => {
+            return <img key={img} src={img} alt="review" width='200px'/>
+          })}         </>) : ("")}
+
             {comment.author._id === user._id &&
               <>
-
-        
-              {/* <button onClick= {toggleEdit}>Edit comment</button>
-            {showEdit && <UpdateComment/>} */}
-
                 <button onClick={() => deleteComment(comment._id)}>Delete   comment</button>
               </>
             }
@@ -153,3 +145,14 @@ const deleteComment = async (id) =>{
 }
 
 export default RestaurantDetailsPage
+
+
+// {comment.imageUrl.length > 0 ? (
+//   <>
+//          {comment.imageUrl.map((img) => {
+//            return <img src={img} alt="review" width='200px'/>
+//          })}
+//          </>
+// ) : ""
+        
+//          }
