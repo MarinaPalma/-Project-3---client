@@ -7,6 +7,7 @@ import Searchbar from '../components/Searchbar';
 import {Row, Col, Card, Button} from 'react-bootstrap';
 
 
+
 function RestaurantsListPage() {
   const { user } = useContext(AuthContext);
   const [restaurants, setRestaurants] = useState([])
@@ -71,28 +72,32 @@ useEffect(() => {
     <Searchbar searchRestaurant ={searchRestaurant}/>
 </div>
     <div className="allRestForm">
-    <Row xs={1} md={3} className="g-4" >
+    <Row xs={2} md={3} className="g-4" >
     {restaurants && allRestaurants.slice(0,items).map((restaurant) => {
 
 return (
     <Col >
-      <Card key={restaurant._id} >
-        <Card.Img variant="top" src={restaurant.imageUrl} alt="restaurant" style={{ "height":"25rem"}}/>
-        <Card.Body>
-          <Card.Title>{restaurant.name}</Card.Title>
+      <Card key={restaurant._id} className="shadow p-2 mb-1 bg-white rounded card h-100">
+      <div className="imageSize">
+        <Card.Img variant="top" src={restaurant.imageUrl} alt="restaurant" className="photosize"/>
+        </div>
+        <Card.Body className="body-rest">
+          <Card.Title style={{fontSize: "0.9rem"}}>{restaurant.name}</Card.Title>
           
           {/* <Card.Text>
             This is a longer card with supporting text below as a natural
             lead-in to additional content. This content is a little bit longer.
           </Card.Text> */}
+          <div>
           <Link to={`/restaurants/${restaurant._id}`}>
-          <Button variant="primary" type='submit'>See Details</Button>
+          <Button style={{fontSize: "0.75rem"}} variant="primary" type='submit'>See Details</Button>
           </Link>
+          </div>
 
           {user && user.role ==="admin" &&( 
             <>    
           <Link to={`/restaurants/edit/${restaurant._id}`}>
-          <Button variant="danger" type='submit'>Edit</Button>
+          <Button variant="danger" type='submit' >Edit</Button>
           </Link>
           </> 
           )}

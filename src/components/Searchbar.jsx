@@ -14,32 +14,17 @@ const handleSearch= (e) =>{
 
 
   return (
-    <div>
-        <label> <FcSearch/> Search  </label>
-        <input value={searchString} placeholder="Tasca name, city" type="text" onChange={handleSearch}/>
-    </div>
+    // <div>
+    //     <label> <FcSearch/> Search  </label>
+    //     <input style={{borderRadius: "10px", border: "1px solid black" }} value={searchString} placeholder="Tasca name, city" type="text" onChange={handleSearch}/>
+    // </div>
+    <div className="form-group search-input">
+<label for="search"><FcSearch/> Search</label>
+<input  style={{width:"12rem", marginLeft:"5px"}} className="form-control" id="search" value={searchString} placeholder="Tasca name, city" type="text" onChange={handleSearch}/>
+</div>
   )
 }
 
 export default Searchbar
 
 
-// DO THIS ABOVE
-// const [allRestaurants, setAllRestaurants] = useState([]);
-
-
-// IN USE EFFECT ADD 
-// setAllRestaurants(response.data);
-
-
-   
-// }    
-
-
-// console.log(restaurants)
-// const searchFilter = (search) => {
-//     let filteredMovies = movies.filter((movie) =>
-//       movie.title.toLowerCase().includes(search.toLowerCase())
-//     );
-//     setSearchMovies(filteredMovies);
-//   };

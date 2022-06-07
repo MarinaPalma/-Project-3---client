@@ -6,6 +6,14 @@ import UpdateComment from '../components/UpdateComment';
 import AddFavouriteBtn from '../components/AddFavouriteBtn';
 import { AuthContext } from "../context/auth.context";
 import Navbar from '../components/Navbar';
+import {Row, Col, Card} from 'react-bootstrap';
+import {FiMapPin} from "react-icons/fi"
+import {FaPhoneAlt} from "react-icons/fa"
+import {AiOutlineEuro} from "react-icons/ai"
+
+
+
+
 
 function RestaurantDetailsPage() {
 
@@ -75,22 +83,82 @@ const deleteComment = async (id) =>{
     
     <div>
     <Navbar/>
-    <h1>Tasca details</h1>
+
     {user && user.role ==="user" &&(
     <AddFavouriteBtn restaurantId={restaurantId}/>
     )}
 
+    <h1>Tasca details</h1>
+    <div className="">
+
+    <Card style={{ maxWidth: '95%' }} className="shadow p-2 mt-2 mb-1 bg-white rounded card h-100">
+<Row className='g-0'>
+{restaurant && (
+<>
+  <Col md='4'>
+    <Card.Img src={restaurant.imageUrl}  alt='...' fluid />
+  </Col>
+  <Col md='8'>
+    <Card.Body>
+      <Card.Title >{restaurant.name}</Card.Title>
+      <Card.Text>
+      {restaurant.city}
+      </Card.Text>
+      <Card.Text>
+      <FiMapPin/> {restaurant.address}
+      </Card.Text>
+      <Card.Text>
+      <FaPhoneAlt/> {restaurant.contact}
+      </Card.Text>
+      <Card.Text>
+      <AiOutlineEuro/> Average price: {restaurant.averagePrice}€
+      </Card.Text>
+      <Card.Text>
+        <small className='text-muted'>Have you been here? </small>
+      </Card.Text>
+    </Card.Body>
+  </Col>
+  {user && user.role ==="user" &&(
+  <>
+  <button onClick= {toggleAdd}>{showAdd ? 'Hide form' : 'Write a review'}</button>
+            {showAdd &&  <AddComment refreshRestaurant={getRestaurant} restaurantId={restaurantId} /> }
+
+</>
+ )}    
+
+  </>
+  )}   
+</Row>
+</Card>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <h1>Tasca details</h1>
+    {/* {user && user.role ==="user" &&(
+    <AddFavouriteBtn restaurantId={restaurantId}/>
+    )} */}
+
 
   {restaurant && (
 <>
-  <h2>{restaurant.name}</h2>
+  {/* <h2>{restaurant.name}</h2>
   <img src={restaurant.imageUrl} alt="" />
   <p>{restaurant.city}</p>
   <p>{restaurant.address}</p>
   <p>{restaurant.contact}</p>
-  <p>{restaurant.averagePrice}€</p>
+  <p>{restaurant.averagePrice}€</p> */}
 
-  {/* <Link to="???"><button>Write a review</button></Link> */}
+ 
 {user && user.role ==="user" &&(
   <>
   <button onClick= {toggleAdd}>{showAdd ? 'Hide form' : 'Write a review'}</button>
@@ -98,9 +166,6 @@ const deleteComment = async (id) =>{
 
 </>
  )}           
-  {/* <AddComment refreshRestaurant={getRestaurant} restaurantId={restaurantId} />  */}
-
-
 
 </>
     )}
@@ -156,3 +221,5 @@ export default RestaurantDetailsPage
 // ) : ""
         
 //          }
+
+

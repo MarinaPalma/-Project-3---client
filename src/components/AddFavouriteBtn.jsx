@@ -1,6 +1,10 @@
 import React, { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../context/auth.context";
 import axios from "axios";
+import {AiFillHeart} from "react-icons/ai"
+import {AiOutlineHeart} from "react-icons/ai"
+import {Button} from 'react-bootstrap';
+
 
 function AddFavouriteBtn({ restaurantId }) {
   const { user } = useContext(AuthContext);
@@ -58,7 +62,7 @@ function AddFavouriteBtn({ restaurantId }) {
 
   return (
     <div>
-      <button onClick={handleClick}>{isFavourite ? "Remove Favourite" : "Add Favourite"}</button>
+      <button className="favourite-btn" onClick={handleClick}>{isFavourite ? <AiFillHeart/> : <AiOutlineHeart/>}</button>
     </div>
   );
 }
