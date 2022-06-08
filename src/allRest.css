@@ -1,39 +1,107 @@
-.allRestForm{
-margin-top:30px;
+.allRestForm {
+  margin-top: 30px;
 }
-.searchBar{
-    margin-bottom:30px;
+.searchBar {
+  margin-bottom: 30px;
 }
-.search-input{
+.search-input {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+.body-rest {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.imageSize {
+  height: 7rem;
+}
+.photosize {
+  width: 100%;
+  height: 12vh;
+  object-fit: cover;
+}
+
+@media (min-width: 1020px) {
+  .imageSize {
+    height: 30vh;
+  }
+  .photosize {
+    height: 25vh;
+  }
+
+  .body-rest {
+    font-size: 2rem;
+  }
+ .comment-image{
+     height: 10vh;
+ }
+
+ .create-rest{
+     width: 100px;
+ }
+ /* .btn-admin {
+    font-size: 5rem;
+    padding: 15px
+ } */
+}
+
+/* @media (min-width: 1200px) {
+  h1 {
+    font-size: 3rem;
+  }
+} */
+
+.favourite-btn {
+  border: 2px;
+  background-color: #f3dce2;
+  position: absolute;
+  top: 80px;
+  right: 40px;
+  color: red;
+  border-radius: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.btn-writecmt {
+  width: 100px;
+  display:flex;
+  justify-content: center;
+  align-self: center;
+
+}
+
+.detailsCard {
+  display: flex;
+  justify-content: center;
+}
+
+.body-details-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+
+.reviews-main{
     display:flex;
-    justify-content: center;
-    align-items: baseline;
-}
-.body-rest{
-    display: flex;
     flex-direction: column;
-    justify-content: space-between;
-}
-.imageSize{
-    height:7rem;
-
-}
-.photosize{
-    width:100%;
-    height: 12vh;
-    object-fit: cover;
-}
-
-.favourite-btn{
-    border: 2px;
-    background-color:#f3dce2;
-    position:absolute;
-    top:60px;
-    right:40px;
-    color:red;
-    border-radius:40px;
-    display:flex;
-    justify-content: center;
     align-items: center;
-    cursor: pointer; 
+
 }
+.reviews-body{
+    display: flex;
+flex-direction: column;
+}
+
+.btn-admin{
+    display:flex;
+}
+
+
+
+

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import {Form, Button, InputGroup} from 'react-bootstrap';
 
 function AddComment(props) {
 const[content, setContent] = useState("")
@@ -74,8 +75,28 @@ const handleSubmit = async (event) => {
 
   return (
     <div>
-    <h1>Add a review</h1>
+    {/* <h1>Add a review</h1> */}
 
+    <Form onSubmit={handleSubmit}>
+    <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+    <Form.Label>Review</Form.Label>
+    <Form.Control as="textarea"  name="content"  value={content} required onChange={ handleContent } rows={3} />
+    </Form.Group>
+  <Form.Group controlId="formFileSm" className="mb-3">
+    <Form.Label className="text-muted ">Add photo (optional)</Form.Label>
+    <Form.Control type="file" size="sm" onChange={(e) => handleFileUpload(e)}/>
+  </Form.Group>
+
+
+    <Button variant="primary" type="submit">
+    {isUploading ? "Uploading Photo" : "Add"}
+  </Button>
+</Form>
+
+
+
+
+{/* 
     <form onSubmit={handleSubmit}>
 
 
@@ -94,7 +115,7 @@ const handleSubmit = async (event) => {
  
         <button type="submit">{isUploading ? "Uploading Photo" : "Add"}</button>
       </form>
-    
+     */}
     
     </div>
   )
