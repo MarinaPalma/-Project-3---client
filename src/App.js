@@ -1,4 +1,3 @@
-import "./App.css";
 import "./login.css";
 import "./allRest.css";
 import MyNavbar from "./components/MyNavbar";
@@ -14,10 +13,13 @@ import EditRestaurantPage from "./pages/EditRestaurantPage";
 import CreateRestaurantPage from "./pages/CreateRestaurantPage";
 import IsPublic from "./components/IsPublic";
 import IsPrivate from "./components/isPrivate";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
     <div className="App">
+    <MyNavbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route
@@ -86,6 +88,17 @@ function App() {
         />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
+      <ToastContainer
+position="top-center"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+/>
     </div>
   );
 }

@@ -49,11 +49,12 @@
  .main-create-rest{
      display: flex;
      justify-content: center;
+     
  }
-
  .carrosel-ph{
     height: 60vh;
     width: 55vw !important;
+    margin-bottom: 6rem;
 }
  /* .btn-admin {
     font-size: 5rem;

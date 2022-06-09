@@ -3,8 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import MyNavbar from "../components/MyNavbar";
 import {Form, Button, Row, Col, InputGroup} from 'react-bootstrap';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 
 function CreateRestaurantPage() {
   const [name, setName] = useState("");
@@ -108,20 +107,8 @@ function CreateRestaurantPage() {
   };
 
   return (
-    <div>
-      <MyNavbar />
+    <main>
       <h2>Add a new Tasca</h2>
-      <ToastContainer
-position="top-center"
-autoClose={5000}
-hideProgressBar={false}
-newestOnTop={false}
-closeOnClick
-rtl={false}
-pauseOnFocusLoss
-draggable
-pauseOnHover
-/>
 <div className="main-create-rest">
 <Form onSubmit={handleSubmit} className ="create-rest">
   <Row className="mb-1">
@@ -232,7 +219,7 @@ pauseOnHover
 
         {/* <button type="submit">Add</button> */}
       {/* </form> */}
-    </div>
+    </main>
   );
 }
 

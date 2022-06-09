@@ -70,9 +70,7 @@ function RestaurantDetailsPage() {
   };
 
   return (
-    <div>
-      <MyNavbar />
-
+    <main>
       {user && user.role === "user" && (
         <AddFavouriteBtn restaurantId={restaurantId} />
       )}
@@ -227,7 +225,7 @@ function RestaurantDetailsPage() {
       <Link to="/restaurants">
         <Button  style={{ marginTop: "10px", backgroundColor: "#068a9c"}} >See all Tascas</Button>
       </Link>
-</div>
+</main>
   );
 }
 

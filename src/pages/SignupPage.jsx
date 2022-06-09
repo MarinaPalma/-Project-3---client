@@ -35,7 +35,7 @@ function SingupPage() {
   return (
 
 
-<div className='center'>
+<main className='center'>
 <div className="loginform">
     <h1 className="mt-3 mb-3 shadow-sm">Sign up</h1>
     <Form onSubmit={handleSubmit} style={{ width: '18rem',  borderTop:"4px solid #d44a1e"}}  className="">
@@ -69,7 +69,7 @@ function SingupPage() {
      </div>
      </div>
 
-</div>
+</main>
 
 
 

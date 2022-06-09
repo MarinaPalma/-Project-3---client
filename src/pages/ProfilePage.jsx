@@ -57,8 +57,7 @@ function ProfilePage() {
   }, [user]);
 
   return (
-    <>
-      <MyNavbar />
+    <main>
       <div>
         {user && (
           <>
@@ -145,7 +144,7 @@ function ProfilePage() {
           </div>
         )}
       </div>
-    </>
+    </main>
   );
 }
 

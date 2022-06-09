@@ -6,11 +6,8 @@ import {Carousel} from 'react-bootstrap';
 function HomePage() {
   return (
     <div>
-      <MyNavbar />
-      <h1>  </h1>
-
-<div className="main-create-rest">
-      <Carousel className="carrosel-ph">
+<div className="main-create-rest home-carrousel">
+  <Carousel className="carrosel-ph">
   <Carousel.Item interval={1000}>
     <img
       className="d-block w-100 "
@@ -21,7 +18,7 @@ function HomePage() {
       <h3>Find the best tascas in Portugal</h3>
     </Carousel.Caption>
   </Carousel.Item>
-  <Carousel.Item interval={500}>
+  <Carousel.Item interval={1000}>
     <img
       className="d-block w-100"
       src="https://res.cloudinary.com/dnorytyjz/image/upload/v1654724634/Taskas/1024_720.jpg_ncw834.png"
@@ -56,23 +53,26 @@ function HomePage() {
   </Carousel.Item>
 </Carousel>
 </div>
+<main>
 
 
 
-      <h2>Find the best tascas in Portugal</h2>
+
+      {/* <h2>Find the best tascas in Portugal</h2> */}
       {/* <Link to="/signup"><button>Sign up</button></Link>
     <Link to="/login"><button>Login</button></Link> */}
 
       <h2>About TasKas</h2>
-      <p>.....</p>
+      <p>TasKas is an app to help people discover new places to eat good, tasty and traditional food from Portugal at a very good cost and then review them. You can save your favourites and return to the ones you liked the most!</p>
       <h2>Do you want to register your tasca?</h2>
       <h4>
-        <b>Contact Us</b>
+        <b><u>Contact Us</u></b>
       </h4>
       <p>
         Give us more information about you and your business and we will contact
         you as soon as possible
       </p>
+      </main>
     </div>
   );
 }

@@ -57,8 +57,7 @@ function RestaurantsListPage() {
   }, []);
 
   return (
-    <div>
-      <MyNavbar />
+    <main>
       <h1>Tascas</h1>
       <div className="searchBar">
         <Searchbar searchRestaurant={searchRestaurant} />
@@ -87,7 +86,7 @@ function RestaurantsListPage() {
                       <div >
                         <Link to={`/restaurants/${restaurant._id}`}>
                           <Button
-                            style={{ fontSize: "0.8rem", padding:"5px", backgroundColor: "#068a9c"}}
+                            style={{ fontSize: "0.8rem", padding:"2px", backgroundColor: "#068a9c"}}
                             
                             type="submit"
                             className="btn-admin"
@@ -100,7 +99,7 @@ function RestaurantsListPage() {
                       {user && user.role === "admin" && (
                         <>
                           <Link to={`/restaurants/edit/${restaurant._id}`}>
-                            <Button  style={{ fontSize: "0.8rem", padding:"5px", marginLeft:"2px", backgroundColor: "#068a9c", width:"2.4rem"}}  type="submit">
+                            <Button  style={{ fontSize: "0.8rem", padding:"2px", marginLeft:"2px", backgroundColor: "#068a9c", width:"2.4rem"}}  type="submit">
                               Edit
                             </Button>
                           </Link>
@@ -117,7 +116,7 @@ function RestaurantsListPage() {
       <Button style={{ marginTop: "10px", backgroundColor: "#770f10" }} onClick={showMoreItems}>
         Show More
       </Button>
-    </div>
+    </main>
   );
 }
 

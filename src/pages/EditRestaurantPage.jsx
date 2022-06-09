@@ -110,8 +110,7 @@ function EditRestaurantPage() {
   };
 
   return (
-    <div>
-      <MyNavbar />
+    <main>
       <h1>Edit tasca</h1>
 
       <div className="main-create-rest">
@@ -197,7 +196,7 @@ function EditRestaurantPage() {
         <button type="submit">Edit</button>
       </form>
       <button onClick={deleteRestaurant}>Delete</button> */}
-    </div>
+    </main>
   );
 }
 
