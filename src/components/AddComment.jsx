@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import {Form, Button, InputGroup} from 'react-bootstrap';
+import {Form, Button, InputGroup, Spinner} from 'react-bootstrap';
 
 function AddComment(props) {
 const[content, setContent] = useState("")
@@ -88,8 +88,8 @@ const handleSubmit = async (event) => {
   </Form.Group>
 
 
-    <Button variant="primary" type="submit">
-    {isUploading ? "Uploading Photo" : "Add"}
+    <Button className="remove-brd" style={{ backgroundColor: "#068a9c"}} type="submit">
+    {isUploading ? <Spinner animation="border" variant="light" size="sm"/> : "Add"}
   </Button>
 </Form>
 

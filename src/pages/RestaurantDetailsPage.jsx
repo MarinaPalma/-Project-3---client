@@ -75,7 +75,7 @@ function RestaurantDetailsPage() {
         <AddFavouriteBtn restaurantId={restaurantId} />
       )}
 
-      <h1>Tasca details</h1>
+      <h1 className="title">Tasca details</h1>
       <div className="detailsCard">
         <Card
           style={{ maxWidth: "90%" }}
@@ -109,7 +109,7 @@ function RestaurantDetailsPage() {
                 {user && user.role === "user" && (
                   <>
                     <Button
-                      className="btn-writecmt"
+                      className="btn-writecmt remove-brd"
                       style={{ width: "150px", textAlign: "center", backgroundColor: "#068a9c", marginTop: "5px" }}
                       
                       onClick={toggleAdd}
@@ -161,7 +161,7 @@ function RestaurantDetailsPage() {
       )} */}
 
       
-   <h1>Reviews</h1>   
+   <h1 className="title-reviews">Reviews</h1>   
 <div className="reviews-main">
 
       {restaurant &&
@@ -202,7 +202,7 @@ function RestaurantDetailsPage() {
                     {comment.author._id === user._id && (
                       <>
                       <Button variant ="danger"
-                      className="btn-writecmt"
+                      className="btn-writecmt remove-brd"
                       style={{ width: "150px", textAlign: "center", marginTop:"5px"}}
                       
                       onClick={() => deleteComment(comment._id)}
@@ -223,7 +223,7 @@ function RestaurantDetailsPage() {
  </div>
 
       <Link to="/restaurants">
-        <Button  style={{ marginTop: "10px", backgroundColor: "#068a9c"}} >See all Tascas</Button>
+        <Button className="remove-brd" style={{ marginTop: "10px", backgroundColor: "#068a9c"}} >See all Tascas</Button>
       </Link>
 </main>
   );

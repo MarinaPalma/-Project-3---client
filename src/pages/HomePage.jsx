@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import MyNavbar from "../components/MyNavbar";
 import {Carousel} from 'react-bootstrap';
+import { HiOutlineMail } from "react-icons/hi";
 
 function HomePage() {
   return (
@@ -62,16 +63,44 @@ function HomePage() {
       {/* <Link to="/signup"><button>Sign up</button></Link>
     <Link to="/login"><button>Login</button></Link> */}
 
-      <h2>About TasKas</h2>
-      <p>TasKas is an app to help people discover new places to eat good, tasty and traditional food from Portugal at a very good cost and then review them. You can save your favourites and return to the ones you liked the most!</p>
-      <h2>Do you want to register your tasca?</h2>
-      <h4>
-        <b><u>Contact Us</u></b>
-      </h4>
-      <p>
-        Give us more information about you and your business and we will contact
-        you as soon as possible
-      </p>
+ 
+      
+      <section id="about">
+      <div class="about-wrapper container">
+        <div class="about-text">
+          <p class="small">About TasKas</p>
+          <h2>We want to make people happy </h2>
+          <p>
+          TasKas helps people discover new places to eat good, tasty and traditional food from Portugal and  review them. You can save your favourites to remember the ones you liked the most!
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="food-menu">
+      <h2 className="food-menu-heading">Do you want to register your tasca?</h2>
+      <div className="food-menu-container container">
+        <div className="food-menu-item">
+          <div className="food-img">
+            <img src="https://res.cloudinary.com/dnorytyjz/image/upload/v1654782806/Taskas/Rectangle_45_whgsxn.png" alt="" />
+          </div>
+          <div className="food-description">
+          <h2 className="food-title">Contact us <HiOutlineMail/></h2>
+            <p>
+            Give us more information about you and your business and we will contact
+        you as soon as possible.
+            </p>
+            <p className="emailctc"><u>taskasadmin@gmail.com</u></p>
+          </div>
+        </div>
+        </div>
+        </section>
+
+          <div id="footer">
+      <h2>Taskas &copy; by Marina Palma - Web Dev Ironhack</h2>
+    </div>
+    
       </main>
     </div>
   );

@@ -8,7 +8,7 @@ function MyNavbar() {
 
   return (
     <Navbar style={{backgroundColor: "#d44a1e"}} variant="light">
-      <Navbar.Brand><img src={"https://res.cloudinary.com/dnorytyjz/image/upload/v1654732249/Taskas/Sem_t%C3%ADtulo-removebg-preview_x3lg0j.png"} style={{marginLeft:"10px"}} width="35px" alt="logo"/></Navbar.Brand>
+      <Navbar.Brand as={Link} to={"/"}><img src={"https://res.cloudinary.com/dnorytyjz/image/upload/v1654732249/Taskas/Sem_t%C3%ADtulo-removebg-preview_x3lg0j.png"} style={{marginLeft:"10px"}} width="35px" alt="logo"/></Navbar.Brand>
       <Nav className="justify-content-end">
         {isLoggedIn && (
           <>

@@ -38,11 +38,48 @@ function LoginPage() {
   };
 
   return (
-<main className='center'>
-<div className="loginform">
+<div className='center'>
+
+<section id="contact">
+      <div class="contact-container loginForm">
+        <div class="contact-img">
+          <img src="https://i.postimg.cc/1XvYM67V/restraunt2.jpg" alt="" />
+        </div>
+
+        <div class="form-container">
+        <form onSubmit={handleSubmit}>
+          <h2 className="title">Login</h2>
+          <input type="email" placeholder="E-mail" value={email} onChange={handleEmail}/>
+          <input type="password" placeholder="Password"  value={password} onChange={handlePassword}/>
+          <Button className="remove-brd" style={{ backgroundColor: "#068a9c"}} type="submit" name="password" >
+    Login
+  </Button>
+          </form>
+          <div className="loginformbtm center">
+{errorMessage && <p className="error-message">{errorMessage}</p>}
+    
+     <p>Don't have an account?</p>
+     <Link to="/signup"> Sign up</Link>
+     </div>
+     
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+{/* <div className="loginform">
     <h1 className="mt-3 mb-3 shadow-sm">Login</h1>
     <Form onSubmit={handleSubmit} style={{ width: '18rem', borderTop:"4px solid #d44a1e"}}  className="">
-    <Form.Group className="mb-3" controlId="formBasicEmail">
+    <Form.Group className="mb-3 mt-2" controlId="formBasicEmail">
     <Form.Label className="text-end">Email </Form.Label>
     <Form.Control type="email" placeholder="Enter email" value={email} onChange={handleEmail}/>
     <Form.Text className="text-muted">
@@ -54,20 +91,22 @@ function LoginPage() {
     <Form.Label>Password</Form.Label>
     <Form.Control type="password" placeholder="Password" value={password} onChange={handlePassword}/>
    </Form.Group>
-  <Button style={{ backgroundColor: "#068a9c"}} type="submit" name="password" >
+   <div class="center">
+  <Button className="remove-brd" style={{ backgroundColor: "#068a9c"}} type="submit" name="password" >
     Login
   </Button>
+  </div>
     </Form>
 
-    <div className="loginformbtm">
+    <div className="loginformbtm center">
 {errorMessage && <p className="error-message">{errorMessage}</p>}
     
      <p>Don't have an account?</p>
      <Link to="/signup"> Sign up</Link>
      </div>
-     </div>
+     </div> */}
 
-</main>
+</div>
 
 
 

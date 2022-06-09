@@ -30,7 +30,7 @@ function RestaurantsListPage() {
       );
       setRestaurants(response.data);
 
-      setAllRestaurants(response.data);
+      setAllRestaurants(response.data.reverse());
 
       // console.log(response.data);
     } catch (error) {
@@ -58,7 +58,7 @@ function RestaurantsListPage() {
 
   return (
     <main>
-      <h1>Tascas</h1>
+      <h1 className="title">Tascas</h1>
       <div className="searchBar">
         <Searchbar searchRestaurant={searchRestaurant} />
       </div>
@@ -82,16 +82,16 @@ function RestaurantsListPage() {
                       />
                     </div>
                     <Card.Body className="body-rest">
-                      <Card.Title>{restaurant.name}</Card.Title>
-                      <div >
+                      <Card.Title className="small">{restaurant.name}</Card.Title>
+                      <div className="btns-admin">
                         <Link to={`/restaurants/${restaurant._id}`}>
                           <Button
-                            style={{ fontSize: "0.8rem", padding:"2px", backgroundColor: "#068a9c"}}
+                            style={{ fontSize: "0.8rem", padding:"5px", backgroundColor: "#068a9c"}}
                             
                             type="submit"
-                            className="btn-admin"
+                            className="btn-admin remove-brd"
                           >
-                            See Details
+                            Details
                           </Button>
                         </Link>
                       
@@ -99,7 +99,7 @@ function RestaurantsListPage() {
                       {user && user.role === "admin" && (
                         <>
                           <Link to={`/restaurants/edit/${restaurant._id}`}>
-                            <Button  style={{ fontSize: "0.8rem", padding:"2px", marginLeft:"2px", backgroundColor: "#068a9c", width:"2.4rem"}}  type="submit">
+                            <Button  className="remove-brd" style={{ fontSize: "0.8rem", padding:"5px", marginLeft:"2px", backgroundColor: "#d44a1e", width:"2.4rem"}}  type="submit">
                               Edit
                             </Button>
                           </Link>
@@ -113,7 +113,7 @@ function RestaurantsListPage() {
             })}
         </Row>
       </div>
-      <Button style={{ marginTop: "10px", backgroundColor: "#770f10" }} onClick={showMoreItems}>
+      <Button className="remove-brd" style={{ marginTop: "10px", backgroundColor: "#d44a1e" }} onClick={showMoreItems}>
         Show More
       </Button>
     </main>

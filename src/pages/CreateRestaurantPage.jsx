@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import MyNavbar from "../components/MyNavbar";
-import {Form, Button, Row, Col, InputGroup} from 'react-bootstrap';
+import {Form, Button, Row, Col, Spinner} from 'react-bootstrap';
 import { toast } from 'react-toastify';
+
+
 
 function CreateRestaurantPage() {
   const [name, setName] = useState("");
@@ -148,8 +150,8 @@ function CreateRestaurantPage() {
     <Form.Control type="file" size="sm" required onChange={(e) => handleFileUpload(e)}/>
   </Form.Group>
   
-  <Button style={{ backgroundColor: "#068a9c"}} type="submit">
-    {isUploading ? "Uploading Photo" : "Add"}
+  <Button className="remove-brd" style={{ backgroundColor: "#068a9c"}} type="submit">
+    {isUploading ? <Spinner animation="border" variant="light" size="sm"/> : "Add"}
   </Button>
 
 

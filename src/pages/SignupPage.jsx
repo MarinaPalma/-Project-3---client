@@ -33,43 +33,77 @@ function SingupPage() {
   };
 
   return (
+<div className='center'>
 
+<section id="contact">
+      <div class="contact-container loginForm">
+        <div class="contact-img">
+          <img src="https://i.postimg.cc/1XvYM67V/restraunt2.jpg" alt="" />
+        </div>
 
-<main className='center'>
-<div className="loginform">
-    <h1 className="mt-3 mb-3 shadow-sm">Sign up</h1>
-    <Form onSubmit={handleSubmit} style={{ width: '18rem',  borderTop:"4px solid #d44a1e"}}  className="">
-    <Form.Group className="mb-3" controlId="formBasicName">
-    <Form.Label className="text-end">Name</Form.Label>
-    <Form.Control type="text" placeholder="Enter your name" value={name} onChange={handleName}/>
-    </Form.Group>
-    
-    <Form.Group className="mb-3" controlId="formBasicEmail">
-    <Form.Label className="text-end">Email address</Form.Label>
-    <Form.Control type="email" placeholder="Enter your email" value={email} onChange={handleEmail}/>
-    <Form.Text className="text-muted">
-      We'll never share your email with anyone else.
-    </Form.Text>
-    </Form.Group>
-
-     <Form.Group className="mb-3" controlId="formBasicPassword">
-    <Form.Label>Password</Form.Label>
-    <Form.Control type="password" placeholder="Enter your password" value={password} onChange={handlePassword}/>
-   </Form.Group>
-  <Button  style={{ backgroundColor: "#068a9c"}}  type="submit" name="password" >
-    Sign up
+        <div class="form-container">
+        <form onSubmit={handleSubmit}>
+          <h2 className="title">Signup</h2>
+          <input  value={name} onChange={handleName} type="text" placeholder="Your name" />
+          <input type="email" placeholder="E-mail" value={email} onChange={handleEmail}/>
+          <input type="password" placeholder="Password"  value={password} onChange={handlePassword}/>
+          <Button className="remove-brd" style={{ backgroundColor: "#068a9c"}} type="submit" name="password" >
+    Signup
   </Button>
-    </Form>
-
-    <div className="loginformbtm">
+          </form>
+          <div className="loginformbtm center">
 {errorMessage && <p className="error-message">{errorMessage}</p>}
     
-    <p>Already have an account?</p>
-      <Link to="/login"> Login</Link>
+     <p>Already have an account?</p>
+     <Link to="/login"> <p>Login</p></Link>
      </div>
-     </div>
+     
+        </div>
+      </div>
+    </section>
 
-</main>
+</div>
+
+
+    
+
+// <main className='center'>
+// <div className="loginform">
+//     <h1 className="mt-3 mb-3 shadow-sm">Sign up</h1>
+//     <Form onSubmit={handleSubmit} style={{ width: '18rem',  borderTop:"4px solid #d44a1e"}}  className="">
+//     <Form.Group className="mb-3 mt-2" controlId="formBasicName">
+//     <Form.Label className="text-end">Name</Form.Label>
+//     <Form.Control type="text" placeholder="Enter your name" value={name} onChange={handleName}/>
+//     </Form.Group>
+    
+//     <Form.Group className="mb-3" controlId="formBasicEmail">
+//     <Form.Label className="text-end">Email address</Form.Label>
+//     <Form.Control type="email" placeholder="Enter your email" value={email} onChange={handleEmail}/>
+//     <Form.Text className="text-muted">
+//       We'll never share your email with anyone else.
+//     </Form.Text>
+//     </Form.Group>
+
+//      <Form.Group className="mb-3" controlId="formBasicPassword">
+//     <Form.Label>Password</Form.Label>
+//     <Form.Control type="password" placeholder="Enter your password" value={password} onChange={handlePassword}/>
+//    </Form.Group>
+//    <div class="center">
+//   <Button className="remove-brd" style={{ backgroundColor: "#068a9c"}} type="submit" name="password" >
+//     Sign up
+//   </Button>
+//   </div>
+//     </Form>
+
+//     <div className="loginformbtm center">
+// {errorMessage && <p className="error-message"><b>{errorMessage}</b></p>}
+    
+//     <p>Already have an account?</p>
+//       <Link to="/login"> Login</Link>
+//      </div>
+//      </div>
+
+// </main>
 
 
 

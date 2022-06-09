@@ -61,7 +61,7 @@ function ProfilePage() {
       <div>
         {user && (
           <>
-            <h1 style={{marginTop: "30px"}}>Welcome {user.name}!</h1>
+            <h1 className="title" style={{marginTop: "20px"}}>Welcome {user.name}!</h1>
 
             <img src={user.imageProfile} alt="profile" width="100px" />
             {/* <h3>{user.name}</h3> */}
@@ -71,7 +71,7 @@ function ProfilePage() {
 
         {user && user.role === "user" && (
           <>
-            <h3 style={{marginTop: "30px"}}>
+            <h3 className="favourites-phrase" style={{marginTop: "30px"}}>
               {" "}
               <AiFillHeart /> Favourite Tascas{" "}
             </h3>
@@ -135,10 +135,10 @@ function ProfilePage() {
             <div >
           <>
             <Link to="/restaurants/add">
-              <Button type="submit" style={{backgroundColor: "#068a9c", outline:"none"}}>Add new Tasca</Button>
+              <Button type="submit" className="remove-brd" style={{backgroundColor: "#068a9c"}}>Add new Tasca</Button>
             </Link>
             <Link to="/restaurants">
-              <Button style={{marginLeft: "5px", backgroundColor: "#068a9c",  outline:"none"}} type="submit" >Manage Tascas</Button>
+              <Button className="remove-brd" style={{marginLeft: "5px", backgroundColor: "#068a9c"}} type="submit" >Manage Tascas</Button>
             </Link>
           </>
           </div>

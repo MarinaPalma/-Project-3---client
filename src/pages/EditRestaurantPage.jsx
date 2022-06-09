@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import MyNavbar from "../components/MyNavbar";
 import {Form, Button, Row, Col, InputGroup} from 'react-bootstrap';
+import { toast } from 'react-toastify';
 
 function EditRestaurantPage() {
   const [name, setName] = useState("");
@@ -101,7 +102,16 @@ function EditRestaurantPage() {
       setAveragePrice(5);
       setContact(2);
       setImageCover("");
-      alert("Tasca updated");
+      toast.success('Tasca updated!', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
+    //   alert("Tasca updated");
 
       navigate(`/restaurants/${restaurantId}`);
     } catch (error) {
@@ -147,11 +157,11 @@ function EditRestaurantPage() {
     </Form.Group>
   </Row>
 
-  <div className="edit-delete-btn">
+  <div className="edit-delete-btn remove-brd">
   <Button  style={{ width: "150px", textAlign: "center",  backgroundColor: "#068a9c"}} type="submit">
  Edit
   </Button>
-<Button  className="btn-writecmt" style={{ width: "150px", textAlign: "center", marginLeft:"10px"  }} variant="danger" onClick={deleteRestaurant}> 
+<Button  className="btn-writecmt remove-brd" style={{ width: "150px", textAlign: "center", marginLeft:"10px"  }} variant="danger" onClick={deleteRestaurant}> 
  Delete restaurant</Button>
 </div>
 </Form>
