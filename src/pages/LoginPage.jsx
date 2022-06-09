@@ -42,9 +42,9 @@ function LoginPage() {
 <div className='center'>
 <div className="loginform">
     <h1 className="mt-3 mb-3 shadow-sm">Login</h1>
-    <Form onSubmit={handleSubmit} style={{ width: '30rem'}}  className="">
+    <Form onSubmit={handleSubmit} style={{ width: '18rem', borderTop:"4px solid #d44a1e"}}  className="">
     <Form.Group className="mb-3" controlId="formBasicEmail">
-    <Form.Label className="text-end">Email address</Form.Label>
+    <Form.Label className="text-end">Email </Form.Label>
     <Form.Control type="email" placeholder="Enter email" value={email} onChange={handleEmail}/>
     <Form.Text className="text-muted">
       We'll never share your email with anyone else.
@@ -55,7 +55,7 @@ function LoginPage() {
     <Form.Label>Password</Form.Label>
     <Form.Control type="password" placeholder="Password" value={password} onChange={handlePassword}/>
    </Form.Group>
-  <Button variant="primary" type="submit" name="password" >
+  <Button style={{ backgroundColor: "#068a9c"}} type="submit" name="password" >
     Login
   </Button>
     </Form>

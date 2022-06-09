@@ -2,8 +2,8 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    width: 35rem;
-    border: 2px solid rgb(37, 37, 220);
+    width: 20rem;
+    border: 3px solid #068a9c;
     border-style: groove;
     border-radius: 20px;
     padding:20px;

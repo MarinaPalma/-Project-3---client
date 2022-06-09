@@ -112,8 +112,8 @@ function RestaurantDetailsPage() {
                   <>
                     <Button
                       className="btn-writecmt"
-                      style={{ width: "150px", textAlign: "center" }}
-                      variant="primary"
+                      style={{ width: "150px", textAlign: "center", backgroundColor: "#068a9c", marginTop: "5px" }}
+                      
                       onClick={toggleAdd}
                     >
                       {showAdd ? "Hide form" : "Write a review"}
@@ -203,10 +203,10 @@ function RestaurantDetailsPage() {
                     </div>
                     {comment.author._id === user._id && (
                       <>
-                      <Button
+                      <Button variant ="danger"
                       className="btn-writecmt"
-                      style={{ width: "150px", textAlign: "center", marginTop:"5px" }}
-                      variant="danger"
+                      style={{ width: "150px", textAlign: "center", marginTop:"5px"}}
+                      
                       onClick={() => deleteComment(comment._id)}
                     >  Delete comment</Button>
                       </>
@@ -225,7 +225,7 @@ function RestaurantDetailsPage() {
  </div>
 
       <Link to="/restaurants">
-        <Button variant="outline-primary" style={{ marginTop: "10px" }} >See all Tascas</Button>
+        <Button  style={{ marginTop: "10px", backgroundColor: "#068a9c"}} >See all Tascas</Button>
       </Link>
 </div>
   );

@@ -70,7 +70,7 @@ function RestaurantsListPage() {
               return (
                 <Col>
                   <Card
-                   style={{ maxWidth: "95%" }}
+                   style={{ maxWidth: "95%"}}
                     key={restaurant._id}
                     className="shadow p-2 mb-1 bg-white rounded card h-100"
                   >
@@ -84,16 +84,11 @@ function RestaurantsListPage() {
                     </div>
                     <Card.Body className="body-rest">
                       <Card.Title>{restaurant.name}</Card.Title>
-
-                      {/* <Card.Text>
-            This is a longer card with supporting text below as a natural
-            lead-in to additional content. This content is a little bit longer.
-          </Card.Text> */}
                       <div >
                         <Link to={`/restaurants/${restaurant._id}`}>
                           <Button
-                            style={{ fontSize: "0.8rem", padding:"5px"}}
-                            variant="primary"
+                            style={{ fontSize: "0.8rem", padding:"5px", backgroundColor: "#068a9c"}}
+                            
                             type="submit"
                             className="btn-admin"
                           >
@@ -105,7 +100,7 @@ function RestaurantsListPage() {
                       {user && user.role === "admin" && (
                         <>
                           <Link to={`/restaurants/edit/${restaurant._id}`}>
-                            <Button  style={{ fontSize: "0.8rem", padding:"5px", marginLeft:"2px"}} variant="danger" type="submit">
+                            <Button  style={{ fontSize: "0.8rem", padding:"5px", marginLeft:"2px", backgroundColor: "#068a9c", width:"2.4rem"}}  type="submit">
                               Edit
                             </Button>
                           </Link>
@@ -119,7 +114,7 @@ function RestaurantsListPage() {
             })}
         </Row>
       </div>
-      <Button variant="outline-primary" style={{ marginTop: "10px" }} onClick={showMoreItems}>
+      <Button style={{ marginTop: "10px", backgroundColor: "#770f10" }} onClick={showMoreItems}>
         Show More
       </Button>
     </div>

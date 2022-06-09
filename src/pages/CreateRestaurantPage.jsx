@@ -122,7 +122,7 @@ pauseOnFocusLoss
 draggable
 pauseOnHover
 />
-<div >
+<div className="main-create-rest">
 <Form onSubmit={handleSubmit} className ="create-rest">
   <Row className="mb-1">
     <Form.Group as={Col} controlId="name">
@@ -161,7 +161,7 @@ pauseOnHover
     <Form.Control type="file" size="sm" required onChange={(e) => handleFileUpload(e)}/>
   </Form.Group>
   
-  <Button variant="primary" type="submit">
+  <Button style={{ backgroundColor: "#068a9c"}} type="submit">
     {isUploading ? "Uploading Photo" : "Add"}
   </Button>
 

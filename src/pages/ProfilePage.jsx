@@ -5,6 +5,8 @@ import MyNavbar from "../components/MyNavbar";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import UpdateComment from "../components/UpdateComment";
 import { AiFillHeart } from "react-icons/ai";
+import {Button, Row, Col, Card} from 'react-bootstrap';
+
 
 function ProfilePage() {
   const { user } = useContext(AuthContext);
@@ -60,29 +62,57 @@ function ProfilePage() {
       <div>
         {user && (
           <>
-            <h1>Hello {user.name}!</h1>
+            <h1 style={{marginTop: "30px"}}>Welcome {user.name}!</h1>
 
-            <img src={user.imageProfile} alt="profile" width="200px" />
-            <h3>{user.name}</h3>
+            <img src={user.imageProfile} alt="profile" width="100px" />
+            {/* <h3>{user.name}</h3> */}
             <p>{user.email}</p>
           </>
         )}
 
         {user && user.role === "user" && (
           <>
-            <h3>
+            <h3 style={{marginTop: "30px"}}>
               {" "}
               <AiFillHeart /> Favourite Tascas{" "}
             </h3>
 
-            {currentUser &&
+
+    <div className="">
+        <Row xs={2} md={3} className="g-4 favouritesForm">
+          {currentUser &&
+            currentUser.favourites.map((restaurant) => {
+              return (
+                <Col className="favouritesForm">
+                  <Card style={{ maxWidth: "90%" }} key={restaurant._id} className="shadow p-1 mb-1 bg-white rounded card h-100">
+                        <div className="imageSize">
+                            <Card.Img variant="top" src={restaurant.imageUrl} alt="restaurant" className="photosize"/>
+                        </div>
+                        <Card.Body className="body-rest">
+                        <Card.Title as={Link} to={`/restaurants/${restaurant._id}`} style={{color:"black", textDecoration: "none"}}><b>{restaurant.name}</b></Card.Title>
+                        </Card.Body>
+                    </Card>
+                </Col>
+              );
+        })}
+        </Row>
+    </div>
+        
+
+
+
+
+
+
+
+            {/* {currentUser &&
               currentUser.favourites.map((restaurant) => {
                 return (
                   <div key={restaurant._id}>
                     <img
                       src={restaurant.imageUrl}
                       alt="restaurant"
-                      width="400px"
+                      width="150px"
                     />
                     <Link to={`/restaurants/${restaurant._id}`}>
                       {" "}
@@ -91,10 +121,10 @@ function ProfilePage() {
                     <h3>{restaurant.name}</h3>
                   </div>
                 );
-              })}
+              })} */}
 
             {currentUser && !currentUser.favourites.length && (
-              <p>
+              <p style={{marginTop: "30px"}}>
                 No favourites yet! Go and adventure yourself in the tasty world
                 of tascas
               </p>
@@ -103,14 +133,16 @@ function ProfilePage() {
         )}
 
         {user && user.role === "admin" && (
+            <div >
           <>
             <Link to="/restaurants/add">
-              <button type="submit">Add a new Tasca</button>
+              <Button type="submit" style={{backgroundColor: "#068a9c", outline:"none"}}>Add new Tasca</Button>
             </Link>
             <Link to="/restaurants">
-              <button type="submit">Manage Tascas</button>
+              <Button style={{marginLeft: "5px", backgroundColor: "#068a9c",  outline:"none"}} type="submit" >Manage Tascas</Button>
             </Link>
           </>
+          </div>
         )}
       </div>
     </>

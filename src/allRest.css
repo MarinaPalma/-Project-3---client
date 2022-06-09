@@ -39,8 +39,22 @@
  }
 
  .create-rest{
-     width: 100px;
+     width: 80vw;
+     display:flex;
+     flex-direction: column;
+     align-content: center;
+
  }
+
+ .main-create-rest{
+     display: flex;
+     justify-content: center;
+ }
+
+ .carrosel-ph{
+    height: 60vh;
+    width: 55vw !important;
+}
  /* .btn-admin {
     font-size: 5rem;
     padding: 15px
@@ -57,8 +71,8 @@
   border: 2px;
   background-color: #f3dce2;
   position: absolute;
-  top: 80px;
-  right: 40px;
+  top: 90px;
+  right: 60px;
   color: red;
   border-radius: 40px;
   display: flex;
@@ -103,5 +117,24 @@ flex-direction: column;
 }
 
 
+.edit-delete-btn{
+    display: flex;
+   justify-content: center;
+    margin-top: 20px;
+    
+}
 
+
+.favouritesForm{
+    display: flex;
+    justify-content: center;
+}
+
+
+Button {
+    outline: none !important;
+  
+        box-shadow: none !important
+    
+}
 

@@ -114,7 +114,7 @@ function EditRestaurantPage() {
       <MyNavbar />
       <h1>Edit tasca</h1>
 
-      <div >
+      <div className="main-create-rest">
 <Form onSubmit={handleSubmit} className ="create-rest">
   <Row className="mb-1">
     <Form.Group as={Col} controlId="name">
@@ -148,24 +148,17 @@ function EditRestaurantPage() {
     </Form.Group>
   </Row>
 
-  
-  <Button variant="primary"  style={{ width: "150px", textAlign: "center", marginTop:"5px" }} type="submit">
+  <div className="edit-delete-btn">
+  <Button  style={{ width: "150px", textAlign: "center",  backgroundColor: "#068a9c"}} type="submit">
  Edit
   </Button>
-
-
-</Form>
-
-<Button  className="btn-writecmt" style={{ width: "150px", textAlign: "center", marginTop:"5px" }} variant="danger" onClick={deleteRestaurant}> 
+<Button  className="btn-writecmt" style={{ width: "150px", textAlign: "center", marginLeft:"10px"  }} variant="danger" onClick={deleteRestaurant}> 
  Delete restaurant</Button>
 </div>
+</Form>
 
 
-
-
-
-
-
+</div>
 
 
       {/* <form onSubmit={handleSubmit}>
