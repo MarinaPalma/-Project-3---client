@@ -84,7 +84,7 @@ const handleSubmit = async (event) => {
     </Form.Group>
   <Form.Group controlId="formFileSm" className="mb-3">
     <Form.Label className="text-muted ">Add photo (optional)</Form.Label>
-    <Form.Control type="file" size="sm" onChange={(e) => handleFileUpload(e)}/>
+    <Form.Control type="file" size="sm" name="imageUrl" onChange={(e) => handleFileUpload(e)}/>
   </Form.Group>
 
 

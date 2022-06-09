@@ -248,6 +248,13 @@
 .remove-brd {
   border: none !important;
 }
+
+/* .btn:focus {
+    outline: none !important;
+    outline-offset: none !important;
+} */
+
+
 /* .remove-brd:hover {
   pointer-events: none !important;
 } */
