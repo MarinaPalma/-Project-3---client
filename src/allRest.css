@@ -71,10 +71,6 @@
     margin: auto;
   }
 
-  /* .btn-admin {
-    font-size: 5rem;
-    padding: 15px
- } */
 }
 
 /* @media (min-width: 1200px) {
@@ -249,42 +245,7 @@
   border: none !important;
 }
 
-/* .btn:focus {
-    outline: none !important;
-    outline-offset: none !important;
-} */
 
-
-/* .remove-brd:hover {
-  pointer-events: none !important;
-} */
-
-/* .buttons {
-    display: inline-block;
-    padding: 0.5rem;
-    text-decoration: none;
-    border-radius: 50px;
-    cursor: pointer;
-    outline: none;
-    margin-top: 1em;
-    font-weight: small;
-    font-size:0.8rem;
-  }
-  
-  .btnblue {
-    color: #fff;
-    background: #068a9c;
-  }
-  
-  .btnblue:hover {
-    background: #066e7e;
-    transition: background 0.3s ease-in-out;
-  }
-
-  .btnbrown {
-    color: #fff;
-    background: #770f10;
-  } */
 
 .btns-admin {
   display: flex;

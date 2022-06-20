@@ -43,7 +43,7 @@ function LoginPage() {
 <section id="contact">
       <div class="contact-container loginForm">
         <div class="contact-img">
-          <img src="https://i.postimg.cc/1XvYM67V/restraunt2.jpg" alt="" />
+          <img src="https://i.postimg.cc/1XvYM67V/restraunt2.jpg" alt="loginimage" />
         </div>
 
         <div class="form-container">
@@ -67,71 +67,9 @@ function LoginPage() {
     </section>
 
 
-
-
-
-
-
-
-
-
-
-{/* <div className="loginform">
-    <h1 className="mt-3 mb-3 shadow-sm">Login</h1>
-    <Form onSubmit={handleSubmit} style={{ width: '18rem', borderTop:"4px solid #d44a1e"}}  className="">
-    <Form.Group className="mb-3 mt-2" controlId="formBasicEmail">
-    <Form.Label className="text-end">Email </Form.Label>
-    <Form.Control type="email" placeholder="Enter email" value={email} onChange={handleEmail}/>
-    <Form.Text className="text-muted">
-      We'll never share your email with anyone else.
-    </Form.Text>
-    </Form.Group>
-
-     <Form.Group className="mb-3" controlId="formBasicPassword">
-    <Form.Label>Password</Form.Label>
-    <Form.Control type="password" placeholder="Password" value={password} onChange={handlePassword}/>
-   </Form.Group>
-   <div class="center">
-  <Button className="remove-brd" style={{ backgroundColor: "#068a9c"}} type="submit" name="password" >
-    Login
-  </Button>
-  </div>
-    </Form>
-
-    <div className="loginformbtm center">
-{errorMessage && <p className="error-message">{errorMessage}</p>}
-    
-     <p>Don't have an account?</p>
-     <Link to="/signup"> Sign up</Link>
-     </div>
-     </div> */}
-
 </div>
 
 
-
-
-
-
-
-
-    // <div className="LoginPage">
-    //   <h1>Login</h1>
-
-    //   <form onSubmit={handleSubmit}>
-    //     <label htmlFor="email">Email</label>
-    //     <input type="text" name="email" value={email} onChange={handleEmail} />
-
-    //     <label htmlFor="password">Password</label>
-    //     <input type="password" name="password" value={password} onChange={handlePassword} />
-
-    //     <button type="submit">Login</button>
-    //   </form>
-
-    //   {errorMessage && <p className="error-message">{errorMessage}</p>}
-    //   <p>Don't have an account?</p>
-    //   <Link to="/signup"> Sign up</Link>
-    // </div>
   );
 }
 

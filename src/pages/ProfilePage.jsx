@@ -3,7 +3,6 @@ import { AuthContext } from "../context/auth.context";
 import axios from "axios";
 import MyNavbar from "../components/MyNavbar";
 import { Link, useParams, useNavigate } from "react-router-dom";
-import UpdateComment from "../components/UpdateComment";
 import { AiFillHeart } from "react-icons/ai";
 import {Button, Row, Col, Card} from 'react-bootstrap';
 
@@ -98,30 +97,6 @@ function ProfilePage() {
     </div>
         
 
-
-
-
-
-
-
-            {/* {currentUser &&
-              currentUser.favourites.map((restaurant) => {
-                return (
-                  <div key={restaurant._id}>
-                    <img
-                      src={restaurant.imageUrl}
-                      alt="restaurant"
-                      width="150px"
-                    />
-                    <Link to={`/restaurants/${restaurant._id}`}>
-                      {" "}
-                      <h3>{restaurant.name}</h3>
-                    </Link>
-                    <h3>{restaurant.name}</h3>
-                  </div>
-                );
-              })} */}
-
             {currentUser && !currentUser.favourites.length && (
               <p style={{marginTop: "30px"}}>
                 No favourites yet! Go and adventure yourself in the tasty world
@@ -150,22 +125,4 @@ function ProfilePage() {
 
 export default ProfilePage;
 
-// <h3>Reviews</h3>
-//     <button onClick={toggleShow}>{showComments ? 'Hide' : 'Show'}</button>
 
-// {showComments && currentUser &&
-
-//   currentUser.comments.map((comment) => {
-//     return (
-//       <div key={comment._id}>
-//         <p>{comment.restaurant}</p>
-//         <p>{comment.content}</p>
-//         <button onClick= {toggleEdit}>Edit comment</button>
-//         {showEdit && <UpdateComment/>}
-//         {/* <button onClick={deleteComment}>Delete comment</button> */}
-//       </div>
-//     );
-//   })}
-
-//   {currentUser && !currentUser.comments.length && <p>No reviews yet! Help other by commenting the tascas you went to </p>
-//   }

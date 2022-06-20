@@ -169,43 +169,6 @@ function EditRestaurantPage() {
 
 </div>
 
-
-      {/* <form onSubmit={handleSubmit}>
-        <label>Name</label>
-        <input type="text" name="name" value={name} onChange={handleName} />
-
-        <label>City</label>
-        <input type="text" name="city" value={city} onChange={handleCity} />
-
-        <label>Address</label>
-        <input
-          type="text"
-          name="address"
-          value={address}
-          onChange={handleAddress}
-        />
-
-        <label>Average Price</label>
-        <input
-          type="number"
-          name="averagePrice"
-          value={averagePrice}
-          onChange={handleAveragePrice}
-        />
-
-        <label>Contact</label>
-        <input
-          type="number"
-          name="contact"
-          value={contact}
-          onChange={handleContact}
-        />
-
-
-
-        <button type="submit">Edit</button>
-      </form>
-      <button onClick={deleteRestaurant}>Delete</button> */}
     </main>
   );
 }

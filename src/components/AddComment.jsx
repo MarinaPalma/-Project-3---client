@@ -93,29 +93,6 @@ const handleSubmit = async (event) => {
   </Button>
 </Form>
 
-
-
-
-{/* 
-    <form onSubmit={handleSubmit}>
-
-
-
-        <label>Review</label>
-        <textarea
-           name="content"
-          cols="30"
-          rows="10"
-          value={content}
-          required
-          onChange={ handleContent } 
-        ></textarea>
- 
- <input type="file" onChange={(e) => handleFileUpload(e)} />
- 
-        <button type="submit">{isUploading ? "Uploading Photo" : "Add"}</button>
-      </form>
-     */}
     
     </div>
   )

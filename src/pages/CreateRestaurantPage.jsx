@@ -99,7 +99,7 @@ function CreateRestaurantPage() {
         draggable: true,
         progress: undefined,
         });
-      // alert("A new tasca was created");
+  
 
       navigate("/restaurants");
     } catch (error) {
@@ -160,67 +160,7 @@ function CreateRestaurantPage() {
 </div>
 
 
-{/* 
-    <div>
-      <MyNavbar />
-      <h2>Add a new Tasca</h2> */}
-      {/* <form onSubmit={handleSubmit}>
-        {errorMessage && <p>{errorMessage}</p>}
 
-      
-
-        <label>Name</label>
-        <input
-          type="text"
-          name="name"
-          value={name}
-          required
-          onChange={handleName}
-        />
-
-        <label>City</label>
-        <input
-          type="text"
-          name="city"
-          value={city}
-          required
-          onChange={handleCity}
-        />
-
-        <label>Address</label>
-        <input
-          type="text"
-          name="address"
-          value={address}
-          required
-          onChange={handleAddress}
-        />
-
-        <label>Average Price</label>
-        <input
-          type="number"
-          name="averagePrice"
-          value={averagePrice}
-          required
-          onChange={handleAveragePrice}
-        />
-
-        <label>Contact</label>
-        <input
-          type="number"
-          name="contact"
-          value={contact}
-          required
-          onChange={handleContact}
-        />
-
-<label></label>
-        <input type="file" required onChange={(e) => handleFileUpload(e)} />
-
-        <button type="submit">{isUploading ? "Uploading Photo" : "Add"}</button> */}
-
-        {/* <button type="submit">Add</button> */}
-      {/* </form> */}
     </main>
   );
 }

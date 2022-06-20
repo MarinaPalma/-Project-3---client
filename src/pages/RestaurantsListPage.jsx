@@ -122,20 +122,4 @@ function RestaurantsListPage() {
 
 export default RestaurantsListPage;
 
-// {restaurants && allRestaurants.slice(0,items).map((restaurant) => {
 
-//   return (
-//     <div key={restaurant._id}>
-//     <img src={restaurant.imageUrl} alt="restaurant" width="400px"/>
-//     <h3>{restaurant.name}</h3>
-//       <Link to={`/restaurants/${restaurant._id}`}>
-//         <button type='submit'>See Details</button>
-//       </Link>
-//       {user && user.role ==="admin" &&(
-//       <Link to={`/restaurants/edit/${restaurant._id}`}><button type="submit">Edit</button></Link>
-
-//       )}
-//     </div>
-//   );
-// })}
-// <button onClick={showMoreItems}>Show More</button>

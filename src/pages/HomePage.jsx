@@ -56,14 +56,6 @@ function HomePage() {
 </div>
 <main>
 
-
-
-
-      {/* <h2>Find the best tascas in Portugal</h2> */}
-      {/* <Link to="/signup"><button>Sign up</button></Link>
-    <Link to="/login"><button>Login</button></Link> */}
-
- 
       
       <section id="about">
       <div class="about-wrapper container">

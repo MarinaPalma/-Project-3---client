@@ -69,6 +69,4 @@ function AddFavouriteBtn({ restaurantId }) {
 
 export default AddFavouriteBtn;
 
-{
-  /* <button onClick={toggleAddFav}>{addFav ? 'Add to favourite' : 'Remove from favourite'}</button> */
-}
+
